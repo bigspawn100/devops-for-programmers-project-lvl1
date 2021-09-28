@@ -1,0 +1,11 @@
+version: "3"
+
+services:
+  app:
+    # build:
+      # context: .
+      # dockerfile: Dockerfile.production
+    command: ["npm", "start"]
+    # image: bigspawn/devops-for-programmers-project-lvl1
+    ports:
+    - 8080:8080
