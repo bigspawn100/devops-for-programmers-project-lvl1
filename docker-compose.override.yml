@@ -2,10 +2,12 @@ version: "3"
 
 services:
   app:
-    # build:
-      # context: .
-      # dockerfile: Dockerfile.production
+    build:
+      context: .
+      dockerfile: Dockerfile.production
     command: ["npm", "start"]
-    # image: bigspawn/devops-for-programmers-project-lvl1
+    image: bigspawn/devops-for-programmers-project-lvl1
     ports:
-    - 8080:8080
+      - 8080:8080
+    volumes:
+      - "./app:/app"

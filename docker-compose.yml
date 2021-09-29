@@ -7,5 +7,4 @@ services:
       dockerfile: Dockerfile
     command: ["npm", "test"]
     container_name: service-app
-    volumes:
-    - "./app:/app"
+
