@@ -5,9 +5,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    command: ["npm", "start"]
+    command: ["./wait-for-it.sh", "db:5432", "--", "npm", "start"]
     volumes:
       - "./app:/app"
+    depends_on:
+      - db
   caddy:
     image: caddy:2.4.5-alpine
     restart: unless-stopped
