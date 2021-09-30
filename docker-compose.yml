@@ -8,8 +8,15 @@ services:
     image: bigspawn/devops-for-programmers-project-lvl1:latest
     container_name: service-app
     command: ["npm", "start"]
+    environment:
+      DATABASE_HOST: db
+      DATABASE_NAME: postgres
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: password
     ports:
       - 8080:8080
+    depends_on:
+      - db
   caddy:
     image: caddy:2.4.5-alpine
     restart: unless-stopped
@@ -20,3 +27,9 @@ services:
       - $PWD/services/caddy/Caddyfile:/etc/caddy/Caddyfile
     depends_on:
       - app
+  db:
+    image: postgres:13.4-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
