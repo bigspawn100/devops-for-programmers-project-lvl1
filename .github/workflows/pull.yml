@@ -14,5 +14,9 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
+      - name: Fetch submodules
+        shell: bash
+        run: git submodule update --init --recursive
+
       - name: Build and push image
         run: make ci
