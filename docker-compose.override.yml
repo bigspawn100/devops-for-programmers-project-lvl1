@@ -4,10 +4,7 @@ services:
   app:
     build:
       context: .
-      dockerfile: Dockerfile.production
-    command: ["npm", "start"]
-    image: bigspawn/devops-for-programmers-project-lvl1
-    ports:
-      - 8080:8080
+      dockerfile: Dockerfile
+    command: ["npm", "test"]
     volumes:
       - "./app:/app"
