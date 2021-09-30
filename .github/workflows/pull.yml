@@ -3,7 +3,7 @@ name: Project pipeline
 on: [push]
 
 jobs:
-  install-test:
+  build_test_push:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -14,5 +14,5 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push image
         run: make ci
