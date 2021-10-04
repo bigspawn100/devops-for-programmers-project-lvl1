@@ -5,8 +5,14 @@
 
 [Docker Hub](https://hub.docker.com/repository/docker/bigspawn/devops-for-programmers-project-lvl1)
 
-### How to run local
+### Commands
 
-```
-make up
-```
+`make up` - run service.
+
+`make build` - build image.
+
+`make test` - test service.
+
+`make push` - publish image to Docker Hub.
+
+`make ci` - build, test, publish image.
